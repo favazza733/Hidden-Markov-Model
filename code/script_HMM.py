@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-# -*- coding: utf-8 -*-
+
 import yfinance as yf
 from hmmlearn.hmm import GMMHMM
 import pandas as pd
@@ -8,7 +8,7 @@ from  sklearn.preprocessing  import StandardScaler
 # simbolo dell'S&P 500 su Yahoo Finance
 ticker = "SPY"
 
-# scarica i dati settimanali dal 2000 a oggi
+
 spy_ = yf.download(ticker, interval="1d", start="2004-11-25", end="2025-09-12")
 
 
@@ -107,18 +107,13 @@ stats_spy = compute_stats(strategy_df['SPY_Return'], freq='W')
 stats_gld = compute_stats(strategy_df['GLD_Return'])
 stats_mixed = compute_stats(strategy_df['Mixed_Return'])
 
-# Combine into report
+
 report = pd.DataFrame(
     [stats_strategy, stats_spy, stats_gld, stats_mixed],
     index=['Strategy', 'SPY', 'GLD', '50/50']
 )
-
-# Display results
 print(report.round(4))
 
-"""
-Spyder Editor
 
-This is a temporary script file.
 """
 
